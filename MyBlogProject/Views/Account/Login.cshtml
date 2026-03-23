@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Üye Girişi";
+}
+<section id="user-login" class="py-5 d-flex align-items-center" style="min-height: 80vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+
+                <div class="card border-0 transition-hover shadow-lg rounded-4 overflow-hidden">
+                    <div class="card-body p-5">
+
+                        <div class="text-center mb-5">
+                            <h1 class="display-6 fw-bold mb-2">Üye Girişi</h1>
+                            <p class="text-muted">Platformumuza hoş geldiniz</p>
+                        </div>
+
+
+                        @if (!string.IsNullOrEmpty(ViewBag.Error))
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class='bx bx-x-circle me-2'></i>
+                                @ViewBag.Error
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+
+                        <form action="/Account/Login" method="post" id="loginForm">
+  
+                            <div class="mb-4">
+                                <label for="username" class="form-label fw-bold text-dark">
+                                    <i class='bx bx-user'></i> Kullanıcı Adı veya E-posta
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="username"
+                                    name="Username" 
+                                    class="form-control form-control-lg rounded-3 border-2 transition-fast"
+                                    placeholder="Kullanıcı adınızı veya e-posta adresinizi girin"
+                                    required>
+                                <small class="text-muted d-block mt-2">
+                                    <i class='bx bx-info-circle'></i> Kayıt sırasında kullandığınız bilgileri girin
+                                </small>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <label for="password" class="form-label fw-bold text-dark mb-0">
+                                        <i class='bx bx-lock-alt'></i> Şifre
+                                    </label>
+                                    <a href="#" class="small text-primary fw-bold">Şifreni mi unuttun?</a>
+                                </div>
+                                <div class="input-group">
+                                    <input 
+                                        type="password" 
+                                        id="password"
+                                        name="Password" 
+                                        class="form-control form-control-lg rounded-start-3 border-2 transition-fast"
+                                        placeholder="••••••••"
+                                        required>
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-outline-secondary rounded-end-3 border-2"
+                                        id="togglePassword">
+                                        <i class='bx bx-hide'></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-check mb-4">
+                                <input 
+                                    type="checkbox" 
+                                    id="remember" 
+                                    name="RememberMe"
+                                    class="form-check-input rounded"
+                                    style="width: 1.2rem; height: 1.2rem;">
+                                <label class="form-check-label ms-2" for="remember">
+                                    Beni 30 gün boyunca hatırla
+                                </label>
+                            </div>
+
+                            <button 
+                                type="submit" 
+                                class="btn btn-primary btn-lg w-100 rounded-3 fw-bold transition-fast"
+                                style="letter-spacing: 0.5px;">
+                                <i class='bx bx-log-in-circle me-2'></i> Giriş Yap
+                            </button>
+                        </form>
+
+                        <div class="my-4 d-flex align-items-center">
+                            <hr class="flex-grow-1">
+                            <span class="px-3 text-muted small">VEYA</span>
+                            <hr class="flex-grow-1">
+                        </div>
+
+                        <div class="text-center mt-5 pt-4 border-top">
+                            <p class="text-muted mb-0">
+                                Henüz hesabınız yok mu?
+                                <a href="/Account/Register" class="text-primary fw-bold text-decoration-none">
+                                    Şimdi kayıt ol
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="/" class="text-muted text-decoration-none small">
+                        <i class='bx bx-arrow-back'></i> Ana Sayfaya Dön
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

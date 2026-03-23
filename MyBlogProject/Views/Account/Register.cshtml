@@ -1,0 +1,184 @@
+@{
+    ViewData["Title"] = "Yeni Hesap Oluştur";
+}
+
+<section id="register-section" class="py-5 d-flex align-items-center" style="min-height: 100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card border-0 transition-hover shadow-lg rounded-4 overflow-hidden">
+                    <div class="card-body p-5">
+
+                        <div class="text-center mb-5">
+                            <h1 class="display-6 fw-bold mb-2">Yeni Hesap Oluştur</h1>
+                            <p class="text-muted">Blogumuza katılarak yorum yapabilir ve güncellemeleri takip edebilirsiniz</p>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(ViewBag.Error as string))
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <i class='bx bx-x-circle me-2'></i>
+                                @ViewBag.Error
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(ViewBag.Success as string))
+                        {
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class='bx bx-check-circle me-2'></i>
+                                @ViewBag.Success
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+
+                        <form action="/Account/Register" method="post" id="registerForm">
+                            <div class="mb-4">
+                                <label for="fullName" class="form-label fw-bold text-dark">
+                                    <i class='bx bx-user'></i> Ad Soyad
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="fullName"
+                                    name="FullName" 
+                                    class="form-control form-control-lg rounded-3 border-2 transition-fast"
+                                    placeholder="Adınız ve soyadınız"
+                                    minlength="3"
+                                    maxlength="100"
+                                    required>
+                                <small class="text-muted d-block mt-2">
+                                    <i class='bx bx-info-circle'></i> En az 3 karakter giriniz
+                                </small>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="email" class="form-label fw-bold text-dark">
+                                    <i class='bx bx-envelope'></i> E-posta Adresi
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email"
+                                    name="Email" 
+                                    class="form-control form-control-lg rounded-3 border-2 transition-fast"
+                                    placeholder="ornek@email.com"
+                                    required>
+                                <small class="text-muted d-block mt-2">
+                                    <i class='bx bx-info-circle'></i> Geçerli bir e-posta adresi girin
+                                </small>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="username" class="form-label fw-bold text-dark">
+                                    <i class='bx bx-at'></i> Kullanıcı Adı
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-2 rounded-start-3">&#64;</span>
+                                    <input 
+                                        type="text" 
+                                        id="username"
+                                        name="Username" 
+                                        class="form-control form-control-lg border-2 rounded-end-3 transition-fast"
+                                        placeholder="kullaniciadi"
+                                        minlength="3"
+                                        maxlength="50"
+                                        required>
+                                </div>
+                                <small class="text-muted d-block mt-2">
+                                    <i class='bx bx-info-circle'></i> 3-50 karakter arasında olmalıdır
+                                </small>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="password" class="form-label fw-bold text-dark">
+                                    <i class='bx bx-lock-alt'></i> Şifre
+                                </label>
+                                <div class="input-group">
+                                    <input 
+                                        type="password" 
+                                        id="password"
+                                        name="Password" 
+                                        class="form-control form-control-lg rounded-start-3 border-2 transition-fast"
+                                        placeholder="••••••••"
+                                        minlength="6"
+                                        required>
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-outline-secondary rounded-end-3 border-2 toggle-password"
+                                        data-target="password">
+                                        <i class='bx bx-hide'></i>
+                                    </button>
+                                </div>
+                                <div class="mt-2">
+                                    <small class="d-block mb-2">Şifre güvenliği gereksinimleri:</small>
+                                    <small class="text-muted d-block"><i class='bx bx-check-circle' id="check-length"></i> En az 6 karakter</small>
+                                    <small class="text-muted d-block"><i class='bx bx-check-circle' id="check-uppercase"></i> Büyük harf içermelidir</small>
+                                    <small class="text-muted d-block"><i class='bx bx-check-circle' id="check-number"></i> Sayı içermelidir</small>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="confirmPassword" class="form-label fw-bold text-dark">
+                                    <i class='bx bx-lock-alt'></i> Şifre Tekrar
+                                </label>
+                                <div class="input-group">
+                                    <input 
+                                        type="password" 
+                                        id="confirmPassword"
+                                        name="ConfirmPassword" 
+                                        class="form-control form-control-lg rounded-start-3 border-2 transition-fast"
+                                        placeholder="••••••••"
+                                        required>
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-outline-secondary rounded-end-3 border-2 toggle-password"
+                                        data-target="confirmPassword">
+                                        <i class='bx bx-hide'></i>
+                                    </button>
+                                </div>
+                                <small class="text-muted d-block mt-2" id="passwordMatch">
+                                    <i class='bx bx-info-circle'></i>
+                                </small>
+                            </div>
+
+                            <div class="form-check mb-4 p-3 bg-light rounded-3">
+                                <input 
+                                    type="checkbox" 
+                                    id="terms" 
+                                    class="form-check-input rounded"
+                                    style="width: 1.2rem; height: 1.2rem;"
+                                    required>
+                                <label class="form-check-label ms-2" for="terms">
+                                    <a href="#" class="text-primary text-decoration-none">Kullanım Koşullarını</a> ve 
+                                    <a href="#" class="text-primary text-decoration-none">Gizlilik Politikasını</a> kabul ediyorum
+                                </label>
+                            </div>
+
+                            <button 
+                                type="submit" 
+                                id="submitBtn"
+                                class="btn btn-primary btn-lg w-100 rounded-3 fw-bold transition-fast"
+                                style="letter-spacing: 0.5px;">
+                                <i class='bx bx-user-plus me-2'></i> Hesap Oluştur
+                            </button>
+                        </form>
+
+                        <div class="text-center mt-5 pt-4 border-top">
+                            <p class="text-muted mb-0">
+                                Zaten hesabınız var mı?
+                                <a href="/Account/Login" class="text-primary fw-bold text-decoration-none">
+                                    Giriş Yap
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="/" class="text-muted text-decoration-none small">
+                        <i class='bx bx-arrow-back'></i> Ana Sayfaya Dön
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

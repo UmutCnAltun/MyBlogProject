@@ -1,0 +1,81 @@
+﻿@using Microsoft.AspNetCore.Http
+@model IEnumerable<MyBlogProject.Models.BlogPost>
+
+@{
+    ViewData["Title"] = "Yazılım & Teknoloji Blogu";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-5 p-5 bg-white shadow-sm rounded-4 border-bottom border-primary border-4">
+        <h1 class="display-4 fw-bold text-dark">Blog Yazılarım</h1>
+        <p class="lead text-muted">Ödev Projesi: ASP.NET Core MVC & Entity Framework</p>
+
+        @if (Context.Session.GetString("UserRole") != null)
+        {
+            <a asp-action="Create" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm mt-3">
+                <i class="fas fa-pen-nib me-2"></i>Yeni Yazı Paylaş
+            </a>
+        }
+    </div>
+
+    <section id="tech-news" class="py-5 bg-dark text-white mb-5 rounded-4 shadow border border-primary border-opacity-25">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <h2 class="fw-bold display-6">Teknoloji <span class="text-primary">Radarı</span></h2>
+                <span class="badge bg-primary px-3 py-2 rounded-pill">Dünyadan Güncel Haberler</span>
+            </div>
+            <div class="row g-4" id="news-container">
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-2 text-muted">Haberler yükleniyor...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row">
+        @if (!Model.Any())
+        {
+            <div class="col-12 text-center py-5">
+                <div class="alert alert-light border-dashed">
+                    <h4 class="text-muted">Henüz hiç yazı eklenmemiş.</h4>
+                </div>
+            </div>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm border-0 hover-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill">Teknoloji</span>
+                                <small class="text-muted"><i class="far fa-calendar-alt me-1"></i>@item.CreatedDate.ToString("dd.MM.yyyy")</small>
+                            </div>
+                            <h5 class="card-title fw-bold text-truncate">@item.Title</h5>
+                            <p class="card-text text-secondary mt-3">
+                                @(item.Content?.Length > 120 ? item.Content.Substring(0, 120) + "..." : item.Content)
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center pb-4">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-link text-decoration-none p-0 fw-bold">Devamını Oku →</a>
+
+                            @if (Context.Session.GetString("UserRole") != null)
+                            {
+                                <div class="btn-group shadow-sm rounded">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning border-0"><i class="fas fa-edit"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger border-0"><i class="fas fa-trash"></i></a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,29 @@
+﻿@model MyBlogProject.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Yazıyı Sil";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="card-body text-center p-5">
+                    <div class="text-danger mb-4">
+                        <i class="fas fa-exclamation-triangle fa-4x"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">Bu yazıyı silmek istiyor musun?</h3>
+                    <p class="text-muted mb-4">"@Model.Title" başlıklı yazı kalıcı olarak silinecek. Bu işlem geri alınamaz.</p>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger btn-lg rounded-pill fw-bold">Evet, Kalıcı Olarak Sil</button>
+                            <a asp-action="Index" class="btn btn-light rounded-pill">Hayır, Vazgeç</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

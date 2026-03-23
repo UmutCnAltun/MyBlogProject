@@ -1,0 +1,175 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<section class="home" id="home-top">
+    <div class="home-content text-start">
+        <img src="~/img/image.png" class="rounded-circle" width="200" height="200">
+        <h1 class="display-4 fw-bold">Merhaba, Ben <span class="text-primary">Umut Can</span></h1>
+        <h3 class="h2 mb-4">Ben <span class="text-primary fw-bold">Full Stack Developer</span></h3>
+        <p class="lead text-muted">
+            Mimari Restarasyon. 2. sınıfta sonlandırarak, çocukluğumdan beri tutkum olan teknoloji ve yazılım dünyasına profesyonel bir geçiş yaptım. Donanım bileşenlerine ve sistem mimarilerine olan merakım,
+            zamanla bu sistemleri yöneten yazılım dünyasına evrildi. Mimari Restarasyon disiplininden kazandığım tasarım vizyonu, yapısal düşünme becerisi ve detay odaklı çalışma disiplinini,
+            son bir yıldır aldığım yoğun yazılım eğitimiyle harmanlıyorum. Sadece kod yazan bir geliştirici değil; estetik ile fonksiyonelliği birleştiren,
+            kullanıcı deneyimini ön planda tutan ve teknik altyapısı sağlam dijital yapılar inşa eden bir çözüm ortağı olmayı hedefliyorum.
+        </p>
+
+        <div class="btn-group gap-3">
+            <a href="/Home/CV" class="btn btn-primary btn-lg rounded-pill px-5 shadow">CV İndir</a>
+            <a href="#contact" class="btn btn-outline-primary btn-lg rounded-pill px-5">Bana Ulaş</a>
+        </div>
+    </div>
+</section>
+
+<section id="tech-news" class="py-5 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="fw-bold display-6">Teknoloji <span class="text-primary">Radarı</span></h2>
+            <span class="badge bg-primary px-3 py-2 rounded-pill">Dünyadan Güncel Haberler</span>
+        </div>
+
+        <div class="row g-4" id="news-container">
+            <div class="text-center py-5">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="mt-2 text-muted">Haberler yükleniyor...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="py-5">
+    <h2 class="text-center fw-bold mb-5 display-5">Hizmetler</h2>
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="p-4 bg-white shadow-sm rounded-4 text-center h-100 border-bottom border-primary border-4">
+                <i class='bx bx-code-alt fs-1 text-primary mb-3'></i>
+                <h4>Front-End</h4>
+                <p class="small text-muted">HTML5, CSS3 ve JavaScript ile modern, estetik arayüzler.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 bg-white shadow-sm rounded-4 text-center h-100 border-bottom border-primary border-4">
+                <i class='bx bx-server fs-1 text-primary mb-3'></i>
+                <h4>Back-End</h4>
+                <p class="small text-muted">C# ve Python ile güvenli ve performanslı sistemler.</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 bg-white shadow-sm rounded-4 text-center h-100 border-bottom border-primary border-4">
+                <i class='bx bx-data fs-1 text-primary mb-3'></i>
+                <h4>Veritabanı & Mimari</h4>
+                <p class="small text-muted">
+                    Entity Framework Core ve MS SQL kullanarak, verilerin güvenli, ilişkisel ve optimize bir şekilde yönetildiği sistem mimarileri inşa ediyorum.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="p-4 bg-white shadow-sm rounded-4 text-center h-100 border-bottom border-primary border-4">
+                <i class='bx bxl-python fs-1 text-primary mb-3'></i>
+                <h4>Otomasyon</h4>
+                <p class="small text-muted">Python ile iş süreçlerini hızlandıran akıllı scriptler.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2>Referanslar</h2>
+
+    <div>
+        <img src="~/img/1.png" class="rounded-circle" width="200" height="200">
+        <h3>Mustafa</h3>
+        <p>Puan: ★★★☆☆</p>
+        <p>
+            Çoğu kişi yazılımın 'nasıl göründüğüne' odaklanırken, Umut kullanıcının 'ne hissettiğine' odaklanıyor.
+            Kod yazarken gösterdiği titizliği, estetikten ödün vermeden fonksiyona dökebilmesi bizim için büyük bir şans.
+            O, arayüzlerin ruhunu tasarlıyor.
+        </p>
+    </div>
+
+    <div>
+        <img src="~/img/kız.jpg" class="rounded-circle" width="200" height="200">
+        <h3>Deniz</h3>
+        <p>Puan: ★★★★★</p>
+        <p>
+            Sadece bir geliştirici değil, aynı zamanda dijital bir tasarım mimarı.
+            Umut’un en büyük farkı, kullanıcının site içindeki 'hissiyatını' kodlayabilmesi.
+            Estetikle fonksiyonelliği bu kadar doğal bir şekilde dengeleyen bir vizyonla çalışmak,
+            projemizin kalitesini doğrudan artırdı.
+        </p>
+    </div>
+
+    <div>
+        <img src="~/img/1.png" class="rounded-circle" width="200" height="200">
+        <h3>Ege</h3>
+        <p>Puan: ★★★★☆</p>
+        <p>
+            Mimari vizyonunu web arayüzlerine bu kadar başarılı yansıtabilmesi projemizin kalitesini artırdı.
+            Sadece kod yazmakla kalmıyor, kullanıcının site içinde nasıl hissettiğini de tasarlıyor.
+            Estetik ve fonksiyonelliği harika dengeliyor.
+        </p>
+    </div>
+</section>
+<section id="blog-posts" class="py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5 display-5">Son Paylaşımlar</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                @foreach (var item in Model)
+                {
+                    <div class="card mb-4 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <div class="card-body p-4">
+                            <h2 class="card-title h3 fw-bold text-primary">@item.Title</h2>
+
+                            <p class="card-text text-muted">
+                                @if (item.Content.Length > 200)
+                                {
+                                    @item.Content.Substring(0, 200)
+
+                                    <span>...</span>
+                                }
+                                else
+                                {
+                                    @item.Content
+                                }
+                            </p>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-secondary"><i class='bx bx-calendar'></i> @item.CreatedDate.ToShortDateString()</small>
+                                <a href="/Home/Details/@item.Id" class="btn btn-primary rounded-pill px-4">Devamını Oku</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Bana Ulaşın</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/Home/SendMessage" method="post" class="p-4 bg-white shadow rounded-4">
+                    <div class="mb-3">
+                        <input type="text" name="Name" class="form-control" placeholder="Adınız" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="Email" class="form-control" placeholder="E-posta Adresiniz" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" name="Subject" class="form-control" placeholder="Konu" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="Message" class="form-control" rows="5" placeholder="Mesajınız" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded-pill">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    @section Scripts {
+        <script src="~/js/site.js"></script>
+    }
+</section>

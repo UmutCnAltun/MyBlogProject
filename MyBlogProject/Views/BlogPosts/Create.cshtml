@@ -1,0 +1,64 @@
+﻿@model MyBlogProject.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Yeni Yazı Oluştur";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card bg-dark text-white shadow-lg border-0 rounded-4" style="border: 1px solid rgba(0, 238, 255, 0.3) !important;">
+                <div class="card-header bg-transparent border-bottom border-primary p-4 text-center">
+                    <h2 class="fw-bold mb-0 text-white">
+                        <i class="fas fa-pen-nib text-primary me-2"></i>Yeni Yazı <span class="text-primary">Oluştur</span>
+                    </h2>
+                </div>
+
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-4">
+                            <label asp-for="Title" class="form-label fw-bold text-white">Yazı Başlığı</label>
+                            <input asp-for="Title" class="form-control bg-secondary text-white border-0 rounded-3 shadow-sm py-2" placeholder="Başlık giriniz..." />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold text-white">Kapak Fotoğrafı</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-primary text-dark border-0"><i class="fas fa-image"></i></span>
+
+                                <input type="file" name="imageFile" class="form-control bg-secondary text-white border-0" accept="image/*" />
+                            </div>
+                            <small class="text-info">Lütfen bir görsel seçiniz (opsiyonel).</small>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Content" class="form-label fw-bold text-white">İçerik</label>
+                            <textarea asp-for="Content" class="form-control bg-secondary text-white border-0 rounded-3 shadow-sm" rows="6" placeholder="Yazınızı buraya yazın..."></textarea>
+                            <span asp-validation-for="Content" class="text-danger"></span>
+                        </div>
+
+                        <input type="hidden" asp-for="CreatedDate" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+
+                        <div class="d-flex gap-3 pt-3">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 shadow fw-bold">
+                                <i class="fas fa-save me-2"></i>Yayınla
+                            </button>
+                            <a asp-action="Index" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                                Vazgeç
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
