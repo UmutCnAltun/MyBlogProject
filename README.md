@@ -34,21 +34,19 @@ Projeyi klonlayın:
 git clone https://github.com/UmutCnAltun/MyBlogProject.git
 ```
 
-Veritabanı Kurulumu:
+### Veritabanı Kurulumu:
 
-**App_Data klasöründeki .sql dosyasını SQL Server'da çalıştırın veya Entity Framework kullanıyorsanız Update-Database komutunu uygulayın.**
+- **App_Data klasöründeki .sql dosyasını SQL Server'da çalıştırın veya Entity Framework kullanıyorsanız Update-Database komutunu uygulayın.**
 
-**Web.config veya appsettings.json dosyasındaki Connection String bilgilerini kendi yerel SQL Server ayarlarınıza göre güncelleyin.**
+- **Web.config veya appsettings.json dosyasındaki Connection String bilgilerini kendi yerel SQL Server ayarlarınıza göre güncelleyin.**
 
-*Çalıştırın:*
+- **Projeyi Visual Studio ile açın ve F5 tuşuna basarak başlatın.**
 
-**Projeyi Visual Studio ile açın ve F5 tuşuna basarak başlatın.**
-
-📖 Proje Amacı
+## 📖 Proje Amacı
 
 Bu proje, bir web uygulamasının uçtan uca (Full-stack) geliştirilme sürecini, veritabanı ilişkilerini ve kullanıcı yönetim sistemlerini uygulamalı olarak göstermek amacıyla hazırlanmıştır. Sadece bir blog değil, aynı zamanda kişisel bir dijital kimlik platformudur.
 
-📸 Ekran Görüntüleri
+## 📸 Ekran Görüntüleri
 
 ![Homepage](/images/homepage.png)
 
